@@ -95,7 +95,7 @@ export function Services() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="relative h-[320px] perspective-1000"
+              className="relative h-auto md:h-[320px] min-h-[320px] perspective-1000"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

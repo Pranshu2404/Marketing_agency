@@ -90,7 +90,7 @@ export function Portfolio() {
 
               {/* Slider Container */}
               <div
-                className="relative h-[400px] cursor-ew-resize touch-none"
+                className="relative h-[300px] sm:h-[400px] cursor-ew-resize touch-none"
                 onMouseDown={() => setActiveSlider(index)}
                 onMouseUp={() => setActiveSlider(null)}
                 onMouseLeave={() => setActiveSlider(null)}

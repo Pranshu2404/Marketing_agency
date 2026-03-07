@@ -29,7 +29,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-26">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-24 sm:mb-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ export function Hero() {
 
           {/* Main Headline */}
           <motion.h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight mt-24"
+            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight mt-20 sm:mt-24"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
