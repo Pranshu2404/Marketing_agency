@@ -1,8 +1,9 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { Send, Phone, Upload, MapPin, Clock, CheckCircle2 } from "lucide-react";
-
-export function Contact() {
+import { db } from "../../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { } from "firebase/storage";export function Contact() {
   const [formData, setFormData] = useState({
     businessName: "",
     phone: "",
@@ -11,10 +12,42 @@ export function Contact() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      let photoURL = "";
+
+      // Handle photo upload if a file is selected
+      // if (formData.shopPhoto) {
+      //   const photoRef = ref(`shopPhotos/${Date.now()}_${formData.shopPhoto.name}`);
+      //   const snapshot = await uploadBytes(photoRef, formData.shopPhoto);
+      //   photoURL = await getDownloadURL(snapshot.ref);
+      // }
+
+      // Add user details to db
+      await addDoc(collection(db, "leads"), {
+        businessName: formData.businessName,
+        phone: formData.phone,
+        location: formData.location,
+        photoURL: photoURL,
+        timestamp: serverTimestamp(),
+      });
+
+      setIsSubmitted(true);
+      setFormData({ businessName: "", phone: "", location: "", shopPhoto: null });
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err: any) {
+      console.error("Error submitting form: ", err);
+      setError("Failed to submit form. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -143,15 +176,22 @@ export function Contact() {
                   </div>
                 </div>
 
+                {error && (
+                  <div className="text-red-400 text-sm p-3 bg-red-400/10 border border-red-400/20 rounded-xl">
+                    {error}
+                  </div>
+                )}
+
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white rounded-xl text-xl font-bold shadow-2xl flex items-center justify-center gap-2"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white rounded-xl text-xl font-bold shadow-2xl flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 >
                   <Send className="w-6 h-6" />
-                  Claim My 3 Free Leads
+                  {isSubmitting ? "Submitting..." : "Claim My 3 Free Leads"}
                 </motion.button>
 
                 <p className="text-white/70 text-sm text-center">
