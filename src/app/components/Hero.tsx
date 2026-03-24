@@ -48,21 +48,21 @@ export function Hero() {
 
           {/* Main Headline */}
           <motion.h1
-            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight mt-20 sm:mt-24"
+            className="text-3xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight mt-10 sm:mt-24"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             Get <span className="text-[#F97316] bg-gradient-to-r from-[#F97316] to-[#FCD34D] bg-clip-text text-transparent">100+ Customers</span> in Weeks
             <br />
-            <span className="text-3xl sm:text-4xl lg:text-5xl text-[#FCD34D]">
+            <span className="text-2xl sm:text-4xl lg:text-5xl text-[#FCD34D]">
               First 3 Leads FREE, Then Just ₹999/Month
             </span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
-            className="text-xl sm:text-2xl text-[#F8FAFC] mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg sm:text-2xl text-[#F8FAFC] mb-12 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}

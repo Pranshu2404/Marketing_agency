@@ -80,28 +80,28 @@ export function About() {
               />
               
               {/* Overlay Stats */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/90 via-transparent to-transparent flex items-end p-8">
-                <div className="grid grid-cols-3 gap-4 w-full">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/90 via-transparent to-transparent flex items-end p-4 sm:p-8">
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
                   <motion.div
-                    className="bg-white/20 backdrop-blur-md rounded-2xl p-4 text-center border border-white/30"
+                    className="bg-white/20 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-4 text-center border border-white/30"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <p className="text-3xl font-bold text-white">10K+</p>
-                    <p className="text-white/80 text-sm">Clients</p>
+                    <p className="text-xl sm:text-3xl font-bold text-white">10K+</p>
+                    <p className="text-white/80 text-[10px] sm:text-sm">Clients</p>
                   </motion.div>
                   <motion.div
-                    className="bg-white/20 backdrop-blur-md rounded-2xl p-4 text-center border border-white/30"
+                    className="bg-white/20 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-4 text-center border border-white/30"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <p className="text-3xl font-bold text-white">5+</p>
-                    <p className="text-white/80 text-sm">Years</p>
+                    <p className="text-xl sm:text-3xl font-bold text-white">5+</p>
+                    <p className="text-white/80 text-[10px] sm:text-sm">Years</p>
                   </motion.div>
                   <motion.div
-                    className="bg-white/20 backdrop-blur-md rounded-2xl p-4 text-center border border-white/30"
+                    className="bg-white/20 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-4 text-center border border-white/30"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <p className="text-3xl font-bold text-white">99%</p>
-                    <p className="text-white/80 text-sm">Happy</p>
+                    <p className="text-xl sm:text-3xl font-bold text-white">99%</p>
+                    <p className="text-white/80 text-[10px] sm:text-sm">Happy</p>
                   </motion.div>
                 </div>
               </div>

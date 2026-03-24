@@ -95,7 +95,7 @@ export function Services() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="relative h-auto md:h-[320px] min-h-[320px] perspective-1000"
+              className="relative h-full md:h-[350px] perspective-1000"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -106,39 +106,32 @@ export function Services() {
               {/* Card Container */}
               <motion.div
                 className="relative w-full h-full"
-                // animate={{ rotateY: flippedCard === index ? 180 : 0 }}
-                // transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-                // style={{ transformStyle: "preserve-3d" }}
               >
                 {/* Front Side */}
                 <div
-                  className="absolute inset-0 rounded-3xl p-12 bg-white shadow-xl border-2 border-transparent hover:border-[#F97316] transition-colors"
-                  // style={{
-                  //   backfaceVisibility: "hidden",
-                  //   transform: "rotateY(0deg)",
-                  // }}
+                  className="relative md:absolute md:inset-0 rounded-3xl p-8 md:p-12 bg-white shadow-xl border-2 border-transparent hover:border-[#F97316] transition-colors h-full flex flex-col"
                 >
                   {/* Icon Circle */}
                   <motion.div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg`}
+                    className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg shrink-0`}
                     animate={{ rotate: flippedCard === index ? 360 : 0 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <service.icon className="w-8 h-8 text-white" />
+                    <service.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                   </motion.div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-[#1E3A8A] mb-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-[#1E3A8A] mb-2">
                     {service.title}
                   </h3>
 
                   {/* Subtitle */}
-                  <div className="inline-block px-4 py-1 bg-[#FCD34D]/20 rounded-full mb-4">
-                    <span className="text-sm font-bold text-[#1E3A8A]">{service.subtitle}</span>
+                  <div className="inline-block self-start px-4 py-1 bg-[#FCD34D]/20 rounded-full mb-4">
+                    <span className="text-xs md:text-sm font-bold text-[#1E3A8A]">{service.subtitle}</span>
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                     {service.description}
                   </p>
 
@@ -151,7 +144,6 @@ export function Services() {
                     Hover to see results →
                   </motion.div> */}
                 </div>
-
                 {/* Back Side - Before/After Stats */}
                 {/* <div
                   className={`absolute inset-0 rounded-3xl p-8 bg-gradient-to-br ${service.gradient} shadow-xl flex flex-col items-center justify-center`}

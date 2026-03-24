@@ -177,36 +177,40 @@ export function Pricing() {
           </h3>
 
           <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-white/20">
-            {/* Table Header */}
-            <div className="grid grid-cols-3 gap-4 p-6 border-b border-white/20 bg-white/5">
-              <div className="text-white font-bold">Feature</div>
-              <div className="text-center text-white font-bold">DIY Approach</div>
-              <div className="text-center text-[#FCD34D] font-bold">LeadBoost Agency</div>
-            </div>
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="min-w-[500px]">
+                {/* Table Header */}
+                <div className="grid grid-cols-3 gap-4 p-6 border-b border-white/20 bg-white/5">
+                  <div className="text-white font-bold">Feature</div>
+                  <div className="text-center text-white font-bold">DIY Approach</div>
+                  <div className="text-center text-[#FCD34D] font-bold">LeadBoost Agency</div>
+                </div>
 
-            {/* Table Rows */}
-            {comparison.map((row, index) => (
-              <motion.div
-                key={index}
-                className="grid grid-cols-3 gap-4 p-6 border-b border-white/10 hover:bg-white/5 transition-colors"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="text-white">{row.feature}</div>
-                <div className="flex justify-center">
-                  <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center">
-                    <X className="w-5 h-5 text-red-500" />
-                  </div>
-                </div>
-                <div className="flex justify-center">
-                  <div className="w-8 h-8 bg-[#10B981]/20 rounded-full flex items-center justify-center">
-                    <Check className="w-5 h-5 text-[#10B981]" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                {/* Table Rows */}
+                {comparison.map((row, index) => (
+                  <motion.div
+                    key={index}
+                    className="grid grid-cols-3 gap-4 p-6 border-b border-white/10 hover:bg-white/5 transition-colors"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="text-white">{row.feature}</div>
+                    <div className="flex justify-center">
+                      <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center">
+                        <X className="w-5 h-5 text-red-500" />
+                      </div>
+                    </div>
+                    <div className="flex justify-center">
+                      <div className="w-8 h-8 bg-[#10B981]/20 rounded-full flex items-center justify-center">
+                        <Check className="w-5 h-5 text-[#10B981]" />
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
 

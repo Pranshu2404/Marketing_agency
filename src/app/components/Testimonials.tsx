@@ -99,15 +99,15 @@ export function Testimonials() {
             transition={{ duration: 0.5 }}
           >
             {/* Quote Icon */}
-            <div className="absolute top-8 right-8 opacity-10">
-              <Quote className="w-20 h-20 text-[#F97316]" />
+            <div className="absolute top-4 right-4 md:top-8 md:right-8 opacity-5 md:opacity-10">
+              <Quote className="w-12 h-12 md:w-20 md:h-20 text-[#F97316]" />
             </div>
 
             <div className="relative z-10 grid md:grid-cols-3 gap-8 items-center">
               {/* Left: Profile */}
               <div className="text-center">
                 <motion.div
-                  className="w-32 h-32 mx-auto mb-3 rounded-full overflow-hidden border-4 border-[#F97316] shadow-lg"
+                  className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-3 rounded-full overflow-hidden border-4 border-[#F97316] shadow-lg"
                   whileHover={{ scale: 1.05, rotate: 5 }}
                 >
                   <img
