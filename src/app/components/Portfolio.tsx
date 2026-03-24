@@ -48,25 +48,25 @@ export function Portfolio() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-[#F97316]/20 to-[#FCD34D]/20 border border-[#F97316]/40 rounded-full"
+            className="inline-block mb-3 sm:mb-4 px-4 py-1 sm:px-6 sm:py-2 bg-gradient-to-r from-[#F97316]/20 to-[#FCD34D]/20 border border-[#F97316]/40 rounded-full"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring" }}
           >
-            <span className="text-[#F97316] font-bold">Our Results</span>
+            <span className="text-[#F97316] font-bold text-[10px] sm:text-base uppercase tracking-wider">Our Results</span>
           </motion.div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1E3A8A] mb-4">
+          <h2 className="text-xl sm:text-5xl font-extrabold text-[#1E3A8A] mb-3 sm:mb-4">
             See The Transformation
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-xl text-gray-600 max-w-2xl mx-auto px-6">
             Real businesses, real results. See how we've helped shops like yours grow
           </p>
         </motion.div>
@@ -83,9 +83,9 @@ export function Portfolio() {
               transition={{ delay: index * 0.2 }}
             >
               {/* Title */}
-              <div className="absolute top-4 left-4 z-30 bg-white/95 backdrop-blur-sm rounded-lg px-2 py-1.5 shadow-lg">
-                <h3 className="text-sm font-bold text-[#1E3A8A]">{result.title}</h3>
-                <p className="text-xs text-[#F97316] font-bold">{result.metric}</p>
+              <div className="absolute top-3 left-3 z-30 bg-white/95 backdrop-blur-sm rounded-lg px-2 py-1 shadow-lg">
+                <h3 className="text-[10px] sm:text-sm font-bold text-[#1E3A8A]">{result.title}</h3>
+                <p className="text-[9px] sm:text-xs text-[#F97316] font-bold">{result.metric}</p>
               </div>
 
               {/* Slider Container */}
@@ -142,7 +142,7 @@ export function Portfolio() {
 
               {/* Drag Hint */}
               <motion.div
-                className="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-20 bg-[#F97316] text-white px-4 py-2 rounded-full text-sm font-bold pointer-events-none"
+                className="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-20 bg-[#F97316] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-sm font-bold pointer-events-none whitespace-nowrap"
                 animate={{ opacity: [1, 0.5, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >

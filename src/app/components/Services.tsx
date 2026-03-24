@@ -67,25 +67,25 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-[#F97316]/20 to-[#FCD34D]/20 border border-[#F97316]/40 rounded-full"
+            className="inline-block mb-3 sm:mb-4 px-3 py-1 sm:px-6 sm:py-2 bg-gradient-to-r from-[#F97316]/20 to-[#FCD34D]/20 border border-[#F97316]/40 rounded-full"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, type: "spring" }}
           >
-            <span className="text-[#F97316] font-bold">Our Services</span>
+            <span className="text-[#F97316] font-bold text-[10px] sm:text-base uppercase tracking-wider">Our Services</span>
           </motion.div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1E3A8A] mb-4">
+          <h2 className="text-xl sm:text-5xl font-extrabold text-[#1E3A8A] mb-2 sm:mb-4">
             Everything Your Business Needs
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xs sm:text-xl text-gray-600 max-w-3xl mx-auto px-6">
             Complete digital presence package designed specifically for Indian shops and new businesses
           </p>
         </motion.div>
@@ -109,29 +109,29 @@ export function Services() {
               >
                 {/* Front Side */}
                 <div
-                  className="relative md:absolute md:inset-0 rounded-3xl p-8 md:p-12 bg-white shadow-xl border-2 border-transparent hover:border-[#F97316] transition-colors h-full flex flex-col"
+                  className="relative md:absolute md:inset-0 rounded-3xl p-4 md:p-12 bg-white shadow-xl border-2 border-transparent hover:border-[#F97316] transition-colors h-full flex flex-col"
                 >
                   {/* Icon Circle */}
                   <motion.div
-                    className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg shrink-0`}
+                    className="w-10 h-10 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#1E3A8A] to-[#2563EB] flex items-center justify-center mb-4 shadow-lg shrink-0"
                     animate={{ rotate: flippedCard === index ? 360 : 0 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <service.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
+                    <service.icon className="w-5 h-5 md:w-8 md:h-8 text-white" />
                   </motion.div>
 
                   {/* Title */}
-                  <h3 className="text-xl md:text-2xl font-bold text-[#1E3A8A] mb-2">
+                  <h3 className="text-base md:text-2xl font-bold text-[#1E3A8A] mb-1.5">
                     {service.title}
                   </h3>
 
                   {/* Subtitle */}
-                  <div className="inline-block self-start px-4 py-1 bg-[#FCD34D]/20 rounded-full mb-4">
-                    <span className="text-xs md:text-sm font-bold text-[#1E3A8A]">{service.subtitle}</span>
+                  <div className="inline-block self-start px-2 py-0.5 bg-[#FCD34D]/20 rounded-full mb-3">
+                    <span className="text-[9px] md:text-sm font-bold text-[#1E3A8A] uppercase tracking-wider">{service.subtitle}</span>
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-600 leading-relaxed text-xs md:text-base">
                     {service.description}
                   </p>
 

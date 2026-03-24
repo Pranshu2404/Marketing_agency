@@ -53,7 +53,7 @@ export function Navigation() {
               </motion.div>
               <div>
                 <h1
-                  className={`text-2xl font-extrabold ${
+                  className={`text-xl sm:text-2xl font-extrabold ${
                     isScrolled
                       ? "bg-gradient-to-r from-[#1E3A8A] to-[#F97316] bg-clip-text text-transparent"
                       : "text-white"
@@ -61,7 +61,7 @@ export function Navigation() {
                 >
                   LeadBoost
                 </h1>
-                <p className={`text-xs ${isScrolled ? "text-[#F97316]" : "text-[#FCD34D]"}`}>
+                <p className={`text-[10px] sm:text-xs ${isScrolled ? "text-[#F97316]" : "text-[#FCD34D]"}`}>
                   Agency
                 </p>
               </div>
@@ -89,7 +89,7 @@ export function Navigation() {
             {/* CTA Buttons - Desktop */}
             <div className="hidden lg:flex items-center gap-4">
               <motion.a
-                href="tel:+919876543210"
+                href="tel:+917459963373"
                 className={`flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-colors ${
                   isScrolled
                     ? "text-[#1E3A8A] hover:bg-gray-100"
@@ -174,7 +174,7 @@ export function Navigation() {
             {/* CTA Buttons */}
             <div className="space-y-4">
               <motion.a
-                href="tel:+919876543210"
+                href="tel:+917459963373"
                 className="flex items-center justify-center gap-2 px-6 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-2xl text-white font-bold text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
                 initial={{ y: 20, opacity: 0 }}
@@ -183,7 +183,7 @@ export function Navigation() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Phone className="w-6 h-6" />
-                <span>Call: +91 98765 43210</span>
+                <span>Call: +91 74599 63373</span>
               </motion.a>
 
               <motion.a

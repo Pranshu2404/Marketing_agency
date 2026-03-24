@@ -48,21 +48,21 @@ export function Hero() {
 
           {/* Main Headline */}
           <motion.h1
-            className="text-3xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight mt-10 sm:mt-24"
+            className="text-2xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight mt-28 sm:mt-24"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             Get <span className="text-[#F97316] bg-gradient-to-r from-[#F97316] to-[#FCD34D] bg-clip-text text-transparent">100+ Customers</span> in Weeks
             <br />
-            <span className="text-2xl sm:text-4xl lg:text-5xl text-[#FCD34D]">
+            <span className="text-xl sm:text-4xl lg:text-5xl text-[#FCD34D]">
               First 3 Leads FREE, Then Just ₹999/Month
             </span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
-            className="text-lg sm:text-2xl text-[#F8FAFC] mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-base sm:text-2xl text-[#F8FAFC] mb-12 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -74,68 +74,37 @@ export function Hero() {
             <span className="text-[#FCD34D]">For Shops & New Businesses Only.</span>
           </motion.p>
 
-          {/* CTA Buttons */}
-          {/* <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-          >
-            <motion.button
-              className="group relative px-8 py-4 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white rounded-full text-xl font-bold shadow-2xl overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                Register Free Now
-                <TrendingUp className="w-6 h-6" />
-              </span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-[#EA580C] to-[#F97316]"
-                initial={{ x: "100%" }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.button>
-
-            <motion.button
-              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full text-xl font-bold hover:bg-white/10 transition-all"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              See Results 📊
-            </motion.button>
-          </motion.div> */}
+          {/* CTA Buttons - (Commented out in original but keeping the structure if edited) */}
 
           {/* Stats Counter */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
           >
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <Star className="w-6 h-6 text-[#FCD34D] fill-[#FCD34D]" />
-                <Star className="w-6 h-6 text-[#FCD34D] fill-[#FCD34D]" />
-                <Star className="w-6 h-6 text-[#FCD34D] fill-[#FCD34D]" />
-                <Star className="w-6 h-6 text-[#FCD34D] fill-[#FCD34D]" />
-                <Star className="w-6 h-6 text-[#FCD34D] fill-[#FCD34D]" />
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/20">
+              <div className="flex items-center justify-center gap-1.5 mb-2">
+                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#FCD34D] fill-[#FCD34D]" />
+                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#FCD34D] fill-[#FCD34D]" />
+                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#FCD34D] fill-[#FCD34D]" />
+                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#FCD34D] fill-[#FCD34D]" />
+                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#FCD34D] fill-[#FCD34D]" />
               </div>
-              <p className="text-2xl font-bold text-white">5.0 Rating</p>
-              <p className="text-[#F8FAFC]/70">From Happy Clients</p>
+              <p className="text-xl sm:text-2xl font-bold text-white">5.0 Rating</p>
+              <p className="text-[#F8FAFC]/70 text-sm sm:text-base">From Happy Clients</p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <Users className="w-12 h-12 text-[#F97316] mx-auto mb-2" />
-              <p className="text-2xl font-bold text-white">10,000+</p>
-              <p className="text-[#F8FAFC]/70">Businesses Helped</p>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/20">
+              <Users className="w-10 h-10 sm:w-12 sm:h-12 text-[#F97316] mx-auto mb-2" />
+              <p className="text-xl sm:text-2xl font-bold text-white">10,000+</p>
+              <p className="text-[#F8FAFC]/70 text-sm sm:text-base">Businesses Helped</p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <TrendingUp className="w-12 h-12 text-[#FCD34D] mx-auto mb-2" />
-              <p className="text-2xl font-bold text-white">50+ Leads</p>
-              <p className="text-[#F8FAFC]/70">Average Per Month</p>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/20">
+              <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12 text-[#FCD34D] mx-auto mb-2" />
+              <p className="text-xl sm:text-2xl font-bold text-white">50+ Leads</p>
+              <p className="text-[#F8FAFC]/70 text-sm sm:text-base">Average Per Month</p>
             </div>
           </motion.div>
         </motion.div>

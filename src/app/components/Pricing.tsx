@@ -42,23 +42,23 @@ export function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-block mb-4"
+            className="inline-block mb-3 sm:mb-4"
             animate={{ rotate: [0, 10, -10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <Sparkles className="w-16 h-16 text-[#FCD34D]" />
+            <Sparkles className="w-10 h-10 sm:w-16 sm:h-16 text-[#FCD34D]" />
           </motion.div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+          <h2 className="text-2xl sm:text-5xl font-extrabold text-white mb-3 sm:mb-4">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-xl text-[#F8FAFC]/80 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-xl text-[#F8FAFC]/80 max-w-2xl mx-auto px-4">
             Try risk-free with 3 free leads, then continue for just ₹999/month
           </p>
         </motion.div>
@@ -74,17 +74,17 @@ export function Pricing() {
           <div className="relative">
             {/* Popular Badge */}
             <motion.div
-              className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20"
+              className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20 w-fit whitespace-nowrap"
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <div className="bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white px-8 py-2 rounded-full font-bold shadow-xl">
+              <div className="bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white px-5 py-1.5 sm:px-8 sm:py-2 rounded-full font-bold shadow-xl text-xs sm:text-base">
                 🔥 MOST POPULAR
               </div>
             </motion.div>
 
             {/* Pricing Card */}
-            <div className="bg-white rounded-3xl p-10 shadow-2xl border-4 border-[#FCD34D] relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-6 sm:p-10 pt-10 sm:pt-10 shadow-2xl border-4 border-[#FCD34D] relative overflow-hidden">
               {/* Glow Effect */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-[#FCD34D]/20 to-transparent"
@@ -92,29 +92,29 @@ export function Pricing() {
                 transition={{ duration: 3, repeat: Infinity }}
               />
 
-              <div className="relative z-10">
+              <div className="relative z-10 pt-4 sm:pt-0">
                 {/* Plan Name */}
-                <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold text-[#1E3A8A] mb-2">
+                <div className="text-center mb-6 sm:mb-8 mt-5 sm:mt-0">
+                  <h3 className="text-xl sm:text-3xl font-bold text-[#1E3A8A] mb-2">
                     Growth Plan
                   </h3>
-                  <p className="text-gray-600">Perfect for New Businesses</p>
+                  <p className="text-[10px] sm:text-base text-gray-600 uppercase tracking-wider font-semibold">Perfect for New Businesses</p>
                 </div>
 
                 {/* Pricing */}
                 <div className="text-center mb-8">
                   <div className="flex items-center justify-center gap-4 mb-4">
                     <div className="text-left">
-                      <p className="text-sm text-gray-500 line-through">₹2,999/mo</p>
+                      <p className="text-xs sm:text-sm text-gray-500 line-through">₹2,999/mo</p>
                       <div className="flex items-baseline">
-                        <span className="text-6xl font-extrabold text-[#1E3A8A]">₹999</span>
-                        <span className="text-2xl text-gray-600 ml-2">/month</span>
+                        <span className="text-4xl sm:text-6xl font-extrabold text-[#1E3A8A]">₹999</span>
+                        <span className="text-xl sm:text-2xl text-gray-600 ml-2">/month</span>
                       </div>
                     </div>
                   </div>
                   
                   <motion.div
-                    className="inline-block px-6 py-3 bg-gradient-to-r from-[#10B981] to-[#059669] text-white rounded-full font-bold text-lg shadow-lg"
+                    className="inline-block px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-[#10B981] to-[#059669] text-white rounded-full font-bold text-sm sm:text-lg shadow-lg"
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >

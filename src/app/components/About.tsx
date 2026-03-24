@@ -39,25 +39,25 @@ export function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-[#1E3A8A]/20 to-[#2563EB]/20 border border-[#1E3A8A]/40 rounded-full"
+            className="inline-block mb-3 sm:mb-4 px-4 py-1.5 sm:px-6 sm:py-2 bg-gradient-to-r from-[#1E3A8A]/20 to-[#2563EB]/20 border border-[#1E3A8A]/40 rounded-full"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring" }}
           >
-            <span className="text-[#1E3A8A] font-bold">About Us</span>
+            <span className="text-[#1E3A8A] font-bold text-xs sm:text-base">About Us</span>
           </motion.div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1E3A8A] mb-4">
+          <h2 className="text-2xl sm:text-5xl font-extrabold text-[#1E3A8A] mb-3 sm:mb-4">
             Turning New Shops into Lead Machines
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             We're a team of digital marketing experts based in Lucknow, dedicated to helping local businesses succeed in the digital world
           </p>
         </motion.div>
@@ -109,12 +109,12 @@ export function About() {
 
             {/* Floating Badge */}
             <motion.div
-              className="absolute -top-6 -right-6 bg-gradient-to-br from-[#F97316] to-[#EA580C] text-white rounded-2xl p-6 shadow-2xl"
+              className="absolute -top-4 -right-2 sm:-top-6 sm:-right-6 bg-gradient-to-br from-[#F97316] to-[#EA580C] text-white rounded-xl sm:rounded-2xl p-3 sm:p-6 shadow-2xl z-20"
               animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              <p className="text-4xl font-bold">5.0 ⭐</p>
-              <p className="text-sm">Customer Rating</p>
+              <p className="text-2xl sm:text-4xl font-bold">5.0 ⭐</p>
+              <p className="text-[10px] sm:text-sm">Customer Rating</p>
             </motion.div>
           </motion.div>
 

@@ -51,10 +51,10 @@ export function Footer() {
             transition={{ duration: 0.6 }}
           >
             <div className="mb-6">
-              <h3 className="text-3xl font-extrabold bg-gradient-to-r from-[#F97316] to-[#FCD34D] bg-clip-text text-transparent">
+              <h3 className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[#F97316] to-[#FCD34D] bg-clip-text text-transparent">
                 LeadBoost
               </h3>
-              <p className="text-[#FCD34D] text-sm">Agency</p>
+              <p className="text-[#FCD34D] text-[10px] sm:text-sm">Agency</p>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
               Helping Indian shops and new businesses unlock endless customers through Google Maps, 
@@ -171,11 +171,11 @@ export function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2 text-white/80">
                 <Phone className="w-4 h-4 text-[#F97316]" />
-                <span>+91 98765 43210</span>
+                <span>+91 74599 63373</span>
               </div>
               <div className="flex items-center gap-2 text-white/80">
                 <Mail className="w-4 h-4 text-[#F97316]" />
-                <span>hello@leadboost.in</span>
+                <span>admin@cognexon.in</span>
               </div>
               <div className="flex items-center gap-2 text-white/80">
                 <MapPin className="w-4 h-4 text-[#F97316]" />
@@ -234,8 +234,8 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <div className="inline-block bg-gradient-to-r from-[#F97316]/20 to-[#FCD34D]/20 border border-[#F97316]/40 rounded-full px-6 py-2">
-            <p className="text-white/80 text-sm">
+          <div className="inline-block bg-gradient-to-r from-[#F97316]/20 to-[#FCD34D]/20 border border-[#F97316]/40 rounded-full px-4 py-1.5 sm:px-6 sm:py-2">
+            <p className="text-white/80 text-[10px] sm:text-sm">
               🚀 Helping <span className="text-[#FCD34D] font-bold">10,000+</span> businesses grow • 
               <span className="text-[#F97316] font-bold"> Start Free Today!</span>
             </p>

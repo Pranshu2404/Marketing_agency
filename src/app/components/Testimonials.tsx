@@ -62,27 +62,27 @@ export function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-block mb-4"
+            className="inline-block mb-3 sm:mb-4"
             animate={{ scale: [1, 1.1, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <div className="flex gap-1">
+            <div className="flex gap-1 justify-center">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-8 h-8 text-[#FCD34D] fill-[#FCD34D]" />
+                <Star key={i} className="w-6 h-6 sm:w-8 sm:h-8 text-[#FCD34D] fill-[#FCD34D]" />
               ))}
             </div>
           </motion.div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1E3A8A] mb-4">
+          <h2 className="text-2xl sm:text-5xl font-extrabold text-[#1E3A8A] mb-3 sm:mb-4">
             Real Stories, Real Results
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Join happy business owners who transformed their businesses with LeadBoost
           </p>
         </motion.div>
@@ -92,7 +92,7 @@ export function Testimonials() {
           {/* Testimonial Card */}
           <motion.div
             key={activeIndex}
-            className="bg-white rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden"
+            className="bg-white rounded-2xl p-5 md:p-8 shadow-xl relative overflow-hidden"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
