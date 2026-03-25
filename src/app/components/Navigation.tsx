@@ -59,7 +59,7 @@ export function Navigation() {
                       : "text-white"
                   }`}
                 >
-                  LeadBoost
+                  Orivo Tech
                 </h1>
                 <p className={`text-[10px] sm:text-xs ${isScrolled ? "text-[#F97316]" : "text-[#FCD34D]"}`}>
                   Agency

@@ -10,7 +10,7 @@ export function Testimonials() {
       name: "Rajesh Kumar",
       business: "Kumar's Tea Stall, Delhi",
       image: "https://images.unsplash.com/photo-1536514888772-a269c6a8a198?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJbmRpYW4lMjB0ZWElMjBzdGFsbCUyMG93bmVyfGVufDF8fHx8MTc3Mjg1NTQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
-      quote: "From 0 to 45 customers per week! LeadBoost transformed my small tea stall into a local favorite. My Google Maps listing shows up first now!",
+      quote: "From 0 to 45 customers per week! Orivo Tech transformed my small tea stall into a local favorite. My Google Maps listing shows up first now!",
       rating: 5,
       beforeLeads: "2-3/week",
       afterLeads: "45+/week",
@@ -28,7 +28,7 @@ export function Testimonials() {
       name: "Amit Patel",
       business: "Patel's Café, Bangalore",
       image: "https://images.unsplash.com/photo-1567383326513-ee6ebaf4679b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJbmRpYW4lMjBzbWFsbCUyMGJ1c2luZXNzJTIwY2FmZSUyMG93bmVyfGVufDF8fHx8MTc3Mjg1NTQ4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      quote: "I was struggling to get customers. After LeadBoost, my café is always full! The SEO work they did is incredible. Worth every rupee!",
+      quote: "I was struggling to get customers. After Orivo Tech, my café is always full! The SEO work they did is incredible. Worth every rupee!",
       rating: 5,
       beforeLeads: "5-10/week",
       afterLeads: "80+/week",
@@ -83,7 +83,7 @@ export function Testimonials() {
             Real Stories, Real Results
           </h2>
           <p className="text-sm sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
-            Join happy business owners who transformed their businesses with LeadBoost
+            Join happy business owners who transformed their businesses with Orivo Tech
           </p>
         </motion.div>
 

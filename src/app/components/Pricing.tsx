@@ -173,7 +173,7 @@ export function Pricing() {
           transition={{ delay: 0.4 }}
         >
           <h3 className="text-3xl font-bold text-white text-center mb-8">
-            Why Choose LeadBoost vs DIY?
+            Why Choose Orivo Tech vs DIY?
           </h3>
 
           <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-white/20">
@@ -183,7 +183,7 @@ export function Pricing() {
                 <div className="grid grid-cols-3 gap-4 p-6 border-b border-white/20 bg-white/5">
                   <div className="text-white font-bold">Feature</div>
                   <div className="text-center text-white font-bold">DIY Approach</div>
-                  <div className="text-center text-[#FCD34D] font-bold">LeadBoost Agency</div>
+                  <div className="text-center text-[#FCD34D] font-bold">Orivo Tech Agency</div>
                 </div>
 
                 {/* Table Rows */}

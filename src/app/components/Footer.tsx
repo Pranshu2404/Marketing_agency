@@ -52,7 +52,7 @@ export function Footer() {
           >
             <div className="mb-6">
               <h3 className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[#F97316] to-[#FCD34D] bg-clip-text text-transparent">
-                LeadBoost
+                Orivo Tech
               </h3>
               <p className="text-[#FCD34D] text-[10px] sm:text-sm">Agency</p>
             </div>
@@ -197,7 +197,7 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <p>© {currentYear} LeadBoost Agency. All rights reserved.</p>
+            <p>© {currentYear} Orivo Tech Agency. All rights reserved.</p>
             <p className="text-sm mt-1">
               Made with <span className="text-red-500">❤️</span> in Lucknow, Uttar Pradesh
             </p>

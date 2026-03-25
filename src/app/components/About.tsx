@@ -75,7 +75,7 @@ export function About() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1761912915167-558fa68f16b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB0ZWFtJTIwb2ZmaWNlJTIwSW5kaWF8ZW58MXx8fHwxNzcyODU1NDg4fDA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="LeadBoost Team"
+                alt="Orivo Tech Team"
                 className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
               />
               
@@ -130,7 +130,7 @@ export function About() {
             </h3>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Founded in 2021 in Lucknow, Uttar Pradesh, LeadBoost Agency was born from a simple observation: 
+                Founded in 2021 in Lucknow, Uttar Pradesh, Orivo Tech Agency was born from a simple observation: 
                 <span className="text-[#F97316] font-bold"> countless amazing shops and businesses struggle to get customers</span> simply because they don't have a strong online presence.
               </p>
               <p>
