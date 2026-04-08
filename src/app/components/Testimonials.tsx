@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import { Star, Quote } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
 
 export function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -9,8 +9,10 @@ export function Testimonials() {
     {
       name: "Rajesh Kumar",
       business: "Kumar's Tea Stall, Delhi",
-      image: "https://images.unsplash.com/photo-1536514888772-a269c6a8a198?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJbmRpYW4lMjB0ZWElMjBzdGFsbCUyMG93bmVyfGVufDF8fHx8MTc3Mjg1NTQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
-      quote: "From 0 to 45 customers per week! Orivo Tech transformed my small tea stall into a local favorite. My Google Maps listing shows up first now!",
+      image:
+        "https://images.unsplash.com/photo-1536514888772-a269c6a8a198?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJbmRpYW4lMjB0ZWElMjBzdGFsbCUyMG93bmVyfGVufDF8fHx8MTc3Mjg1NTQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      quote:
+        "From 0 to 45 customers per week! Orivo Tech transformed my small tea stall into a local favorite. My Google Maps listing shows up first now!",
       rating: 5,
       beforeLeads: "2-3/week",
       afterLeads: "45+/week",
@@ -18,8 +20,10 @@ export function Testimonials() {
     {
       name: "Priya Sharma",
       business: "Priya's Boutique, Mumbai",
-      image: "https://images.unsplash.com/photo-1659355894515-2548f35525f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJbmRpYW4lMjB3b21hbiUyMGJ1c2luZXNzJTIwb3duZXIlMjBsYXB0b3B8ZW58MXx8fHwxNzcyODU1NDg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      quote: "My Instagram went from 0 to 2,000 followers in 3 months! The team set everything up perfectly. Now I get daily orders through social media.",
+      image:
+        "https://images.unsplash.com/photo-1659355894515-2548f35525f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJbmRpYW4lMjB3b21hbiUyMGJ1c2luZXNzJTIwb3duZXIlMjBsYXB0b3B8ZW58MXx8fHwxNzcyODU1NDg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      quote:
+        "My Instagram went from 0 to 2,000 followers in 3 months! The team set everything up perfectly. Now I get daily orders through social media.",
       rating: 5,
       beforeLeads: "0/month",
       afterLeads: "60+/month",
@@ -27,8 +31,10 @@ export function Testimonials() {
     {
       name: "Amit Patel",
       business: "Patel's Café, Bangalore",
-      image: "https://images.unsplash.com/photo-1567383326513-ee6ebaf4679b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJbmRpYW4lMjBzbWFsbCUyMGJ1c2luZXNzJTIwY2FmZSUyMG93bmVyfGVufDF8fHx8MTc3Mjg1NTQ4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      quote: "I was struggling to get customers. After Orivo Tech, my café is always full! The SEO work they did is incredible. Worth every rupee!",
+      image:
+        "https://images.unsplash.com/photo-1567383326513-ee6ebaf4679b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJbmRpYW4lMjBzbWFsbCUyMGJ1c2luZXNzJTIwY2FmZSUyMG93bmVyfGVufDF8fHx8MTc3Mjg1NTQ4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      quote:
+        "I was struggling to get customers. After Orivo Tech, my café is always full! The SEO work they did is incredible. Worth every rupee!",
       rating: 5,
       beforeLeads: "5-10/week",
       afterLeads: "80+/week",
@@ -36,203 +42,188 @@ export function Testimonials() {
     {
       name: "Sunita Verma",
       business: "Verma Beauty Salon, Lucknow",
-      image: "https://images.unsplash.com/photo-1604177091072-b7b677a077f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMEluZGlhbiUyMGVudHJlcHJlbmV1ciUyMHBob25lfGVufDF8fHx8MTc3Mjg1NTQ4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      quote: "Best investment for my new salon! The Facebook page they created brings customers daily. Support team is amazing and always helpful!",
+      image:
+        "https://images.unsplash.com/photo-1604177091072-b7b677a077f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMEluZGlhbiUyMGVudHJlcHJlbmV1ciUyMHBob25lfGVufDF8fHx8MTc3Mjg1NTQ4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      quote:
+        "Best investment for my new salon! The Facebook page they created brings customers daily. Support team is amazing and always helpful!",
       rating: 5,
       beforeLeads: "1-2/day",
       afterLeads: "15+/day",
     },
   ];
 
-  // Auto-rotate testimonials
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
+  const goNext = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % testimonials.length);
   }, [testimonials.length]);
 
+  const goPrev = () => {
+    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(goNext, 6000);
+    return () => clearInterval(interval);
+  }, [goNext]);
+
+  const current = testimonials[activeIndex];
+
   return (
-    <section className="py-10 bg-[#F8FAFC] relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#F97316_1px,transparent_1px)] bg-[length:30px_30px]" />
+    <section className="py-24 sm:py-32 bg-[#0c0c1d] relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)",
+          }}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-10 sm:mb-16"
+          className="text-center mb-14 sm:mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-block mb-3 sm:mb-4"
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full"
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, type: "spring" }}
           >
-            <div className="flex gap-1 justify-center">
+            <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 sm:w-8 sm:h-8 text-[#FCD34D] fill-[#FCD34D]" />
+                <Star key={i} className="w-3 h-3 text-amber-400 fill-amber-400" />
               ))}
             </div>
+            <span className="text-gray-400 font-medium text-xs sm:text-sm">5.0 Average Rating</span>
           </motion.div>
-          <h2 className="text-2xl sm:text-5xl font-extrabold text-[#1E3A8A] mb-3 sm:mb-4">
-            Real Stories, Real Results
+          <h2
+            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            Real Stories,{" "}
+            <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+              Real Results
+            </span>
           </h2>
-          <p className="text-sm sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+          <p className="text-sm sm:text-lg text-gray-500 max-w-xl mx-auto">
             Join happy business owners who transformed their businesses with Orivo Tech
           </p>
         </motion.div>
 
-        {/* Main Testimonial Carousel */}
+        {/* Testimonial Card */}
         <div className="relative max-w-5xl mx-auto">
-          {/* Testimonial Card */}
           <motion.div
             key={activeIndex}
-            className="bg-white rounded-2xl p-5 md:p-8 shadow-xl relative overflow-hidden"
-            initial={{ opacity: 0, x: 100 }}
+            className="relative bg-white/[0.03] rounded-2xl p-6 sm:p-10 border border-white/[0.06] overflow-hidden"
+            initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
+            exit={{ opacity: 0, x: -60 }}
+            transition={{ duration: 0.4 }}
           >
-            {/* Quote Icon */}
-            <div className="absolute top-4 right-4 md:top-8 md:right-8 opacity-5 md:opacity-10">
-              <Quote className="w-12 h-12 md:w-20 md:h-20 text-[#F97316]" />
+            {/* Large quote icon */}
+            <div className="absolute top-6 right-6 sm:top-8 sm:right-8">
+              <Quote className="w-12 h-12 sm:w-16 sm:h-16 text-violet-500/[0.08]" />
             </div>
 
-            <div className="relative z-10 grid md:grid-cols-3 gap-8 items-center">
+            <div className="relative z-10 grid md:grid-cols-[280px_1fr] gap-8 items-center">
               {/* Left: Profile */}
-              <div className="text-center">
+              <div className="text-center md:text-left">
                 <motion.div
-                  className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-3 rounded-full overflow-hidden border-4 border-[#F97316] shadow-lg"
-                  whileHover={{ scale: 1.05, rotate: 5 }}
+                  className="w-20 h-20 sm:w-24 sm:h-24 mx-auto md:mx-0 mb-4 rounded-2xl overflow-hidden border-2 border-violet-500/30 shadow-lg shadow-violet-500/10"
+                  whileHover={{ scale: 1.05 }}
                 >
                   <img
-                    src={testimonials[activeIndex].image}
-                    alt={testimonials[activeIndex].name}
+                    src={current.image}
+                    alt={current.name}
                     className="w-full h-full object-cover"
                   />
                 </motion.div>
-                <h4 className="text-lg font-bold text-[#1E3A8A] mb-1">
-                  {testimonials[activeIndex].name}
-                </h4>
-                <p className="text-sm text-gray-600 mb-2">{testimonials[activeIndex].business}</p>
-                <div className="flex justify-center gap-0.5 mb-3">
-                  {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-[#FCD34D] fill-[#FCD34D]" />
+                <h4 className="text-lg font-bold text-white mb-0.5">{current.name}</h4>
+                <p className="text-sm text-gray-500 mb-3">{current.business}</p>
+                <div className="flex justify-center md:justify-start gap-0.5 mb-4">
+                  {[...Array(current.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
                   ))}
                 </div>
 
                 {/* Before/After Stats */}
-                <div className="bg-gradient-to-br from-[#1E3A8A] to-[#2563EB] rounded-xl p-3 text-white text-sm">
-                  <p className="text-xs opacity-80 mb-0.5">Leads Growth</p>
-                  <p className="text-xs line-through opacity-60">
-                    {testimonials[activeIndex].beforeLeads}
+                <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-3">
+                  <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5">
+                    Leads Growth
                   </p>
-                  <p className="text-xl font-bold text-[#FCD34D]">
-                    {testimonials[activeIndex].afterLeads}
-                  </p>
+                  <div className="flex items-center justify-center md:justify-start gap-2">
+                    <span className="text-gray-600 line-through text-xs">{current.beforeLeads}</span>
+                    <span className="text-gray-600">→</span>
+                    <span className="text-emerald-400 font-bold text-lg">{current.afterLeads}</span>
+                  </div>
                 </div>
               </div>
 
               {/* Right: Quote */}
-              <div className="md:col-span-2">
+              <div>
                 <motion.p
-                  className="text-lg text-gray-700 leading-relaxed mb-4 italic"
-                  initial={{ opacity: 0, y: 20 }}
+                  className="text-base sm:text-lg text-gray-300 leading-relaxed mb-6"
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
+                  transition={{ delay: 0.15 }}
                 >
-                  "{testimonials[activeIndex].quote}"
+                  "{current.quote}"
                 </motion.p>
 
                 {/* Verified Badge */}
                 <motion.div
-                  className="inline-flex items-center gap-2 bg-[#10B981]/10 border border-[#10B981] rounded-full px-3 py-1 text-sm"
+                  className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ delay: 0.4, type: "spring" }}
+                  transition={{ delay: 0.3, type: "spring" }}
                 >
-                  <div className="w-2 h-2 bg-[#10B981] rounded-full" />
-                  <span className="text-xs font-bold text-[#10B981]">Verified Customer</span>
+                  <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                  <span className="text-xs font-semibold text-emerald-400">Verified Customer</span>
                 </motion.div>
               </div>
             </div>
           </motion.div>
 
-          {/* Navigation Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`transition-all ${
-                  index === activeIndex
-                    ? "w-8 h-2 bg-[#F97316]"
-                    : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
-                } rounded-full`}
-              />
-            ))}
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <motion.button
+              onClick={goPrev}
+              className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all"
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </motion.button>
+
+            <div className="flex gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`transition-all duration-300 rounded-full ${
+                    index === activeIndex
+                      ? "w-8 h-2 bg-gradient-to-r from-violet-500 to-cyan-500"
+                      : "w-2 h-2 bg-white/10 hover:bg-white/20"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <motion.button
+              onClick={goNext}
+              className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all"
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronRight className="w-5 h-5" />
+            </motion.button>
           </div>
         </div>
-
-        {/* Thumbnail Grid */}
-        {/* <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-        >
-          {testimonials.map((testimonial, index) => (
-            <motion.button
-              key={index}
-              onClick={() => setActiveIndex(index)}
-              className={`p-4 rounded-2xl transition-all ${
-                index === activeIndex
-                  ? "bg-white shadow-xl border-2 border-[#F97316]"
-                  : "bg-white/50 hover:bg-white hover:shadow-lg"
-              }`}
-              whileHover={{ y: -5 }}
-            >
-              <div className="w-16 h-16 mx-auto mb-2 rounded-full overflow-hidden border-2 border-[#F97316]">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <p className="text-sm font-bold text-[#1E3A8A] truncate">
-                {testimonial.name}
-              </p>
-              <div className="flex justify-center gap-1 mt-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 h-3 text-[#FCD34D] fill-[#FCD34D]" />
-                ))}
-              </div>
-            </motion.button>
-          ))}
-        </motion.div> */}
-
-        {/* CTA */}
-        {/* <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-        >
-          <motion.button
-            className="px-8 py-4 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white rounded-full text-xl font-bold shadow-xl"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Join 10,000+ Success Stories
-          </motion.button>
-        </motion.div> */}
       </div>
     </section>
   );

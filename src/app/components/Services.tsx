@@ -1,228 +1,204 @@
 import { motion } from "motion/react";
 import { useState } from "react";
-import { MapPin, Instagram, TrendingUp, Zap } from "lucide-react";
+import { MapPin, Instagram, TrendingUp, Zap, ArrowUpRight } from "lucide-react";
 
 export function Services() {
-  const [flippedCard, setFlippedCard] = useState<number | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const services = [
     {
       icon: MapPin,
       title: "Google Maps Mastery",
       subtitle: "Top Local Ranking",
-      description: "We create and optimize your Google Business Profile to dominate local searches.",
-      beforeStat: "0 Map Views",
-      afterStat: "5,000+ Monthly Views",
-      color: "#EA4335",
-      gradient: "from-red-500 to-red-600",
+      description:
+        "We create and optimize your Google Business Profile to dominate local searches. Your customers will find you first.",
+      stat: "5,000+ Monthly Views",
+      gradient: "from-rose-500 to-orange-500",
+      glowColor: "rgba(244,63,94,0.15)",
+      iconBg: "bg-rose-500/10",
+      iconColor: "text-rose-400",
     },
     {
       icon: Instagram,
       title: "Social Media Setup",
       subtitle: "Pro Pages Built",
-      description: "Professional Instagram and Facebook business pages with engaging content strategy.",
-      beforeStat: "No Social Presence",
-      afterStat: "2,000+ Followers",
-      color: "#E1306C",
-      gradient: "from-pink-500 to-purple-600",
+      description:
+        "Professional Instagram and Facebook business pages with engaging content strategy that builds your brand.",
+      stat: "2,000+ Followers",
+      gradient: "from-fuchsia-500 to-pink-500",
+      glowColor: "rgba(217,70,239,0.15)",
+      iconBg: "bg-fuchsia-500/10",
+      iconColor: "text-fuchsia-400",
     },
     {
       icon: TrendingUp,
       title: "SEO Power-Up",
-      subtitle: "Organic Leads",
-      description: "Advanced SEO optimization to rank higher on Google and attract organic traffic.",
-      beforeStat: "Page 10 on Google",
-      afterStat: "Top 3 Rankings",
-      color: "#10B981",
-      gradient: "from-green-500 to-emerald-600",
+      subtitle: "Organic Growth",
+      description:
+        "Advanced SEO optimization to rank higher on Google and attract organic traffic that converts into paying customers.",
+      stat: "Top 3 Rankings",
+      gradient: "from-emerald-500 to-teal-500",
+      glowColor: "rgba(16,185,129,0.15)",
+      iconBg: "bg-emerald-500/10",
+      iconColor: "text-emerald-400",
     },
     {
       icon: Zap,
       title: "Ongoing Leads",
       subtitle: "₹999/mo After Free",
-      description: "Continuous lead generation, monthly reports, and dedicated support to grow your business.",
-      beforeStat: "0-5 Leads/Month",
-      afterStat: "50+ Leads/Month",
-      color: "#F97316",
-      gradient: "from-orange-500 to-orange-600",
+      description:
+        "Continuous lead generation, monthly reports, and dedicated support to grow your business month after month.",
+      stat: "50+ Leads/Month",
+      gradient: "from-violet-500 to-blue-500",
+      glowColor: "rgba(124,58,237,0.15)",
+      iconBg: "bg-violet-500/10",
+      iconColor: "text-violet-400",
     },
   ];
 
   return (
-    <section className="py-10 bg-gradient-to-b from-white to-[#F8FAFC] relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute -top-40 -right-40 w-96 h-96 bg-[#F97316]/10 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
-          transition={{ duration: 20, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#1E3A8A]/10 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.3, 1], rotate: [0, -90, 0] }}
-          transition={{ duration: 15, repeat: Infinity }}
+    <section className="py-24 sm:py-32 bg-[#0a0a1a] relative overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0">
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
         />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-8 sm:mb-16"
+          className="text-center mb-16 sm:mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-block mb-3 sm:mb-4 px-3 py-1 sm:px-6 sm:py-2 bg-gradient-to-r from-[#F97316]/20 to-[#FCD34D]/20 border border-[#F97316]/40 rounded-full"
+            className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, type: "spring" }}
           >
-            <span className="text-[#F97316] font-bold text-[10px] sm:text-base uppercase tracking-wider">Our Services</span>
+            <div className="w-1.5 h-1.5 bg-violet-400 rounded-full" />
+            <span className="text-gray-400 font-medium text-xs sm:text-sm uppercase tracking-wider">
+              Our Services
+            </span>
           </motion.div>
-          <h2 className="text-xl sm:text-5xl font-extrabold text-[#1E3A8A] mb-2 sm:mb-4">
-            Everything Your Business Needs
+          <h2
+            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            Everything Your Business{" "}
+            <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              Needs
+            </span>
           </h2>
-          <p className="text-xs sm:text-xl text-gray-600 max-w-3xl mx-auto px-6">
+          <p className="text-sm sm:text-lg text-gray-500 max-w-2xl mx-auto">
             Complete digital presence package designed specifically for Indian shops and new businesses
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="relative h-full md:h-[350px] perspective-1000"
-              initial={{ opacity: 0, y: 50 }}
+              className="group relative"
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              onHoverStart={() => setFlippedCard(index)}
-              onHoverEnd={() => setFlippedCard(null)}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
-              {/* Card Container */}
+              {/* Card */}
               <motion.div
-                className="relative w-full h-full"
+                className="relative h-full rounded-2xl p-6 sm:p-8 bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-500 overflow-hidden"
+                whileHover={{ y: -4 }}
               >
-                {/* Front Side */}
-                <div
-                  className="relative md:absolute md:inset-0 rounded-3xl p-4 md:p-12 bg-white shadow-xl border-2 border-transparent hover:border-[#F97316] transition-colors h-full flex flex-col"
-                >
-                  {/* Icon Circle */}
+                {/* Glow effect on hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `radial-gradient(400px circle at 50% 50%, ${service.glowColor}, transparent 70%)`,
+                  }}
+                />
+
+                {/* Top row: icon + stat badge */}
+                <div className="relative z-10 flex items-start justify-between mb-5">
                   <motion.div
-                    className="w-10 h-10 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#1E3A8A] to-[#2563EB] flex items-center justify-center mb-4 shadow-lg shrink-0"
-                    animate={{ rotate: flippedCard === index ? 360 : 0 }}
-                    transition={{ duration: 0.6 }}
+                    className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl ${service.iconBg} flex items-center justify-center`}
+                    animate={hoveredCard === index ? { rotate: [0, -10, 10, 0] } : {}}
+                    transition={{ duration: 0.5 }}
                   >
-                    <service.icon className="w-5 h-5 md:w-8 md:h-8 text-white" />
+                    <service.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${service.iconColor}`} />
                   </motion.div>
 
-                  {/* Title */}
-                  <h3 className="text-base md:text-2xl font-bold text-[#1E3A8A] mb-1.5">
+                  <div className="flex items-center gap-1.5 px-3 py-1 bg-white/5 border border-white/10 rounded-full">
+                    <ArrowUpRight className="w-3 h-3 text-emerald-400" />
+                    <span className="text-xs text-emerald-400 font-medium">{service.stat}</span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1.5">
                     {service.title}
                   </h3>
-
-                  {/* Subtitle */}
-                  <div className="inline-block self-start px-2 py-0.5 bg-[#FCD34D]/20 rounded-full mb-3">
-                    <span className="text-[9px] md:text-sm font-bold text-[#1E3A8A] uppercase tracking-wider">{service.subtitle}</span>
+                  <div className="inline-block px-2.5 py-0.5 bg-white/5 rounded-md mb-3">
+                    <span className="text-[10px] sm:text-xs font-medium text-gray-400 uppercase tracking-wider">
+                      {service.subtitle}
+                    </span>
                   </div>
-
-                  {/* Description */}
-                  <p className="text-gray-600 leading-relaxed text-xs md:text-base">
+                  <p className="text-gray-500 leading-relaxed text-sm sm:text-base">
                     {service.description}
                   </p>
-
-                  {/* Hover Hint */}
-                  {/* <motion.div
-                    className="absolute bottom-8 left-8 right-8 text-center text-sm text-gray-400"
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    Hover to see results →
-                  </motion.div> */}
                 </div>
-                {/* Back Side - Before/After Stats */}
-                {/* <div
-                  className={`absolute inset-0 rounded-3xl p-8 bg-gradient-to-br ${service.gradient} shadow-xl flex flex-col items-center justify-center`}
-                  style={{
-                    backfaceVisibility: "hidden",
-                    transform: "rotateY(180deg)",
-                  }}
-                >
-                  <h3 className="text-3xl font-bold text-white mb-8">
-                    Real Results
-                  </h3> */}
 
-                  {/* Before/After Comparison */}
-                  {/* <div className="w-full space-y-6"> */}
-                    {/* Before */}
-                    {/* <motion.div
-                      className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border-2 border-white/30"
-                      initial={{ x: -50, opacity: 0 }}
-                      animate={flippedCard === index ? { x: 0, opacity: 1 } : { x: -50, opacity: 0 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <p className="text-white/70 text-sm mb-2">BEFORE</p>
-                      <p className="text-2xl font-bold text-white">{service.beforeStat}</p>
-                    </motion.div> */}
-
-                    {/* Arrow */}
-                    {/* <motion.div
-                      className="text-center"
-                      animate={{ y: [0, 10, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      <span className="text-5xl text-white">↓</span>
-                    </motion.div> */}
-
-                    {/* After */}
-                    {/* <motion.div
-                      className="bg-white/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-white/50 shadow-lg"
-                      initial={{ x: 50, opacity: 0 }}
-                      animate={flippedCard === index ? { x: 0, opacity: 1 } : { x: 50, opacity: 0 }}
-                      transition={{ delay: 0.4 }}
-                    >
-                      <p className="text-white/70 text-sm mb-2">AFTER</p>
-                      <p className="text-3xl font-bold text-white">{service.afterStat}</p>
-                    </motion.div> */}
-                  {/* </div> */}
-
-                  {/* Success Badge */}
-                  {/* <motion.div
-                    className="mt-6 px-6 py-2 bg-white rounded-full"
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <span className="font-bold" style={{ color: service.color }}>
-                      ✓ Proven Results
-                    </span>
-                  </motion.div> */}
-                {/* </div> */}
+                {/* Bottom gradient line */}
+                <motion.div
+                  className={`absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                />
               </motion.div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom Note */}
-        {/* <motion.div
-          className="mt-16 text-center"
+        {/* Bottom CTA */}
+        <motion.div
+          className="mt-14 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.5 }}
         >
-          <div className="inline-block bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] rounded-2xl p-8 shadow-2xl">
-            <p className="text-2xl font-bold text-white mb-2">
-              All Services Included in One Package
-            </p>
-            <p className="text-[#FCD34D] text-xl">
-              First 3 Leads FREE • Then just ₹999/month
-            </p>
+          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-violet-600/10 to-cyan-500/10 border border-violet-500/20 rounded-2xl px-6 py-4 sm:px-8 sm:py-5">
+            <div className="text-left">
+              <p className="text-white font-semibold text-sm sm:text-base">
+                All Services Included in One Package
+              </p>
+              <p className="text-gray-400 text-xs sm:text-sm">
+                First 3 Leads FREE • Then just{" "}
+                <span className="text-amber-400 font-semibold">₹999/month</span>
+              </p>
+            </div>
+            <motion.a
+              href="#contact"
+              className="shrink-0 px-5 py-2.5 bg-gradient-to-r from-violet-600 to-cyan-500 text-white rounded-xl text-sm font-semibold shadow-lg shadow-violet-600/20"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get Started
+            </motion.a>
           </div>
-        </motion.div> */}
+        </motion.div>
       </div>
     </section>
   );

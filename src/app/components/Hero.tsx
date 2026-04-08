@@ -1,129 +1,296 @@
-import { motion } from "motion/react";
-import { Star, TrendingUp, Users } from "lucide-react";
+import { motion, useMotionValue, useTransform } from "motion/react";
+import { Star, TrendingUp, Users, ArrowRight, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
+
+function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const duration = 2000;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+    return () => clearInterval(timer);
+  }, [target]);
+
+  return <span>{count.toLocaleString()}{suffix}</span>;
+}
 
 export function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#1E3A8A] via-[#1E3A8A] to-[#2563EB]">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1760262492874-80283261b99c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXN0bGluZyUyMEluZGlhbiUyMG1hcmtldCUyMHN0cmVldHxlbnwxfHx8fDE3NzI4NTU0ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Bustling Indian Market"
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1E3A8A]/90 via-[#1E3A8A]/80 to-[#1E3A8A]/90" />
-      </div>
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useTransform(mouseY, [0, 800], [2, -2]);
+  const rotateY = useTransform(mouseX, [0, 1200], [-2, 2]);
 
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+  const handleMouseMove = (e: React.MouseEvent) => {
+    mouseX.set(e.clientX);
+    mouseY.set(e.clientY);
+  };
+
+  return (
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a1a]"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Animated Gradient Mesh Background */}
+      <div className="absolute inset-0">
+        {/* Primary gradient orbs */}
         <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-[#F97316] rounded-full opacity-20 blur-3xl"
-          animate={{ scale: [1, 1.2, 1], x: [0, 30, 0], y: [0, 20, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 70%)",
+          }}
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-40 h-40 bg-[#FCD34D] rounded-full opacity-20 blur-3xl"
-          animate={{ scale: [1, 1.3, 1], x: [0, -20, 0], y: [0, 30, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(6,182,212,0.25) 0%, transparent 70%)",
+          }}
+          animate={{
+            x: [0, -80, 0],
+            y: [0, -60, 0],
+            scale: [1, 1.3, 1],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
+        <motion.div
+          className="absolute top-[40%] left-[50%] w-[400px] h-[400px] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)",
+          }}
+          animate={{
+            x: [0, 60, -40, 0],
+            y: [0, -40, 30, 0],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Grid overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        {/* Floating particles */}
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-violet-400/30 rounded-full"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0, 0.8, 0],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+            }}
+          />
+        ))}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-24 sm:mb-32">
+      <motion.div
+        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-32"
+        style={{ rotateX, rotateY, perspective: 1200 }}
+      >
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
           {/* Trust Badge */}
-          {/* <motion.div
-            className="inline-flex items-center gap-2 bg-[#FCD34D]/20 border border-[#FCD34D]/40 rounded-full px-6 py-2 mb-8"
+          <motion.div
+            className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-8 backdrop-blur-sm"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.3 }}
           >
-            <Star className="w-5 h-5 text-[#FCD34D] fill-[#FCD34D]" />
-            <span className="text-[#FCD34D]">Trusted by 10,000+ Indian Businesses</span>
-          </motion.div> */}
+            <div className="flex -space-x-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+              ))}
+            </div>
+            <span className="text-sm text-gray-300 font-medium">
+              Trusted by <span className="text-white font-semibold">10,000+</span> Indian Businesses
+            </span>
+          </motion.div>
 
           {/* Main Headline */}
           <motion.h1
-            className="text-2xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight mt-28 sm:mt-24"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Get <span className="text-[#F97316] bg-gradient-to-r from-[#F97316] to-[#FCD34D] bg-clip-text text-transparent">100+ Customers</span> in Weeks
-            <br />
-            <span className="text-xl sm:text-4xl lg:text-5xl text-[#FCD34D]">
-              First 3 Leads FREE, Then Just ₹999/Month
+            Get{" "}
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                100+ Customers
+              </span>
+              <motion.div
+                className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-violet-400 to-cyan-400 rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 1.2, duration: 0.8 }}
+              />
             </span>
+            <br />
+            <span className="text-gray-300">in Weeks</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
-            className="text-base sm:text-2xl text-[#F8FAFC] mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-gray-400 mb-4 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.6 }}
           >
-            We build your <span className="text-[#F97316]">Google Maps page</span>, 
-            <span className="text-[#F97316]"> Instagram/FB profiles</span>, and skyrocket your 
-            <span className="text-[#F97316]"> SEO</span>. 
-            <br className="hidden sm:block" />
-            <span className="text-[#FCD34D]">For Shops & New Businesses Only.</span>
+            We build your{" "}
+            <span className="text-violet-400 font-medium">Google Maps page</span>,{" "}
+            <span className="text-purple-400 font-medium">Instagram/FB profiles</span>, and
+            skyrocket your{" "}
+            <span className="text-cyan-400 font-medium">SEO</span>
           </motion.p>
 
-          {/* CTA Buttons - (Commented out in original but keeping the structure if edited) */}
+          {/* Price Banner */}
+          <motion.div
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-violet-600/20 to-cyan-500/20 border border-violet-500/30 rounded-full px-6 py-2.5 mb-10 backdrop-blur-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+          >
+            <Sparkles className="w-5 h-5 text-amber-400" />
+            <span className="text-white font-semibold text-sm sm:text-base">
+              First 3 Leads <span className="text-emerald-400">FREE</span> • Then Just{" "}
+              <span className="text-amber-400">₹999</span>/Month
+            </span>
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 }}
+          >
+            <motion.a
+              href="#contact"
+              className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-white font-bold text-lg overflow-hidden shadow-2xl shadow-violet-600/25"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-cyan-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative z-10">Claim Your Free Leads</span>
+              <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.a>
+            <motion.a
+              href="tel:+919198058216"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-white font-medium text-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <span>📞</span>
+              <span>Call Now</span>
+            </motion.a>
+          </motion.div>
 
           {/* Stats Counter */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
+            transition={{ delay: 1.2 }}
           >
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/20">
-              <div className="flex items-center justify-center gap-1.5 mb-2">
-                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#FCD34D] fill-[#FCD34D]" />
-                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#FCD34D] fill-[#FCD34D]" />
-                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#FCD34D] fill-[#FCD34D]" />
-                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#FCD34D] fill-[#FCD34D]" />
-                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#FCD34D] fill-[#FCD34D]" />
+            <motion.div
+              className="group relative bg-white/[0.03] backdrop-blur-sm rounded-2xl p-5 border border-white/[0.06] hover:border-violet-500/30 transition-all duration-500"
+              whileHover={{ y: -4 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="flex items-center justify-center gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                  ))}
+                </div>
+                <p className="text-2xl font-bold text-white">5.0 Rating</p>
+                <p className="text-gray-500 text-sm">From Happy Clients</p>
               </div>
-              <p className="text-xl sm:text-2xl font-bold text-white">5.0 Rating</p>
-              <p className="text-[#F8FAFC]/70 text-sm sm:text-base">From Happy Clients</p>
-            </div>
+            </motion.div>
 
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/20">
-              <Users className="w-10 h-10 sm:w-12 sm:h-12 text-[#F97316] mx-auto mb-2" />
-              <p className="text-xl sm:text-2xl font-bold text-white">10,000+</p>
-              <p className="text-[#F8FAFC]/70 text-sm sm:text-base">Businesses Helped</p>
-            </div>
+            <motion.div
+              className="group relative bg-white/[0.03] backdrop-blur-sm rounded-2xl p-5 border border-white/[0.06] hover:border-cyan-500/30 transition-all duration-500"
+              whileHover={{ y: -4 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500" />
+              <div className="relative z-10">
+                <Users className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
+                <p className="text-2xl font-bold text-white">
+                  <AnimatedCounter target={10000} suffix="+" />
+                </p>
+                <p className="text-gray-500 text-sm">Businesses Helped</p>
+              </div>
+            </motion.div>
 
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/20">
-              <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12 text-[#FCD34D] mx-auto mb-2" />
-              <p className="text-xl sm:text-2xl font-bold text-white">50+ Leads</p>
-              <p className="text-[#F8FAFC]/70 text-sm sm:text-base">Average Per Month</p>
-            </div>
+            <motion.div
+              className="group relative bg-white/[0.03] backdrop-blur-sm rounded-2xl p-5 border border-white/[0.06] hover:border-purple-500/30 transition-all duration-500"
+              whileHover={{ y: -4 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500" />
+              <div className="relative z-10">
+                <TrendingUp className="w-8 h-8 text-purple-400 mx-auto mb-2" />
+                <p className="text-2xl font-bold text-white">
+                  <AnimatedCounter target={50} suffix="+" />
+                </p>
+                <p className="text-gray-500 text-sm">Average Leads/Month</p>
+              </div>
+            </motion.div>
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
+        animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-8 h-12 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+        <div className="w-7 h-11 border-2 border-white/20 rounded-full flex items-start justify-center p-2">
           <motion.div
-            className="w-2 h-2 bg-white rounded-full"
-            animate={{ y: [0, 20, 0] }}
+            className="w-1.5 h-1.5 bg-gradient-to-b from-violet-400 to-cyan-400 rounded-full"
+            animate={{ y: [0, 16, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
         </div>
       </motion.div>
+
+      {/* Bottom gradient transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a1a] to-transparent" />
     </section>
   );
 }
