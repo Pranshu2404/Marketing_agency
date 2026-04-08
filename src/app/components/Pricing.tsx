@@ -154,7 +154,7 @@ export function Pricing() {
                   {/* CTA Button */}
                   <motion.a
                     href="#contact"
-                    className="group/btn w-full py-4 bg-gradient-to-r from-violet-600 to-cyan-500 text-white rounded-xl text-lg font-bold shadow-xl shadow-violet-600/20 flex items-center justify-center gap-2"
+                    className="group/btn w-full py-4 bg-gradient-to-r from-violet-600 to-cyan-500 text-white rounded-xl text-sm sm:text-base md:text-lg font-bold shadow-xl shadow-violet-600/20 flex items-center justify-center gap-2"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

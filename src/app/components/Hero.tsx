@@ -160,7 +160,7 @@ export function Hero() {
               />
             </span>
             <br />
-            <span className="text-gray-300">in Weeks</span>
+            <span className="text-gray-300 block mt-2 sm:mt-0">in Weeks</span>
           </motion.h1>
 
           {/* Subheadline */}
