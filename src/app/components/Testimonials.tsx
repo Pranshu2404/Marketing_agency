@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
+import { AnimatedCounter } from "./AnimatedCounter";
 
 export function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -101,7 +102,9 @@ export function Testimonials() {
                 <Star key={i} className="w-3 h-3 text-amber-400 fill-amber-400" />
               ))}
             </div>
-            <span className="text-gray-400 font-medium text-xs sm:text-sm">5.0 Average Rating</span>
+            <span className="text-gray-400 font-medium text-xs sm:text-sm">
+              <AnimatedCounter target={5} decimals={1} /> Average Rating
+            </span>
           </motion.div>
           <h2
             className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"

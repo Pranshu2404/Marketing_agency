@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { AnimatedCounter } from "./AnimatedCounter";
 import { Check, Sparkles, ArrowRight, Shield, Zap } from "lucide-react";
 
 export function Pricing() {
@@ -117,7 +118,7 @@ export function Pricing() {
                         className="text-5xl sm:text-6xl font-bold text-white"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                       >
-                        ₹999
+                        <AnimatedCounter target={999} prefix="₹" />
                       </span>
                       <span className="text-gray-500 text-lg">/month</span>
                     </div>

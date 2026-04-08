@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Heart, Target, Award, Users } from "lucide-react";
+import { AnimatedCounter } from "./AnimatedCounter";
 
 export function About() {
   const values = [
@@ -107,7 +108,7 @@ export function About() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <p className="text-xl sm:text-2xl font-bold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                      10K+
+                      <AnimatedCounter target={10000} suffix="+" />
                     </p>
                     <p className="text-gray-400 text-[10px] sm:text-xs">Clients</p>
                   </motion.div>
@@ -116,7 +117,7 @@ export function About() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <p className="text-xl sm:text-2xl font-bold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                      5+
+                      <AnimatedCounter target={5} suffix="+" />
                     </p>
                     <p className="text-gray-400 text-[10px] sm:text-xs">Years</p>
                   </motion.div>
@@ -125,7 +126,7 @@ export function About() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <p className="text-xl sm:text-2xl font-bold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                      99%
+                      <AnimatedCounter target={99} suffix="%" />
                     </p>
                     <p className="text-gray-400 text-[10px] sm:text-xs">Happy</p>
                   </motion.div>
