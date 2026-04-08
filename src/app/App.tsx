@@ -1,3 +1,4 @@
+import { ScrollProgress } from "./components/ScrollProgress";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { HowItWorks } from "./components/HowItWorks";
@@ -12,6 +13,7 @@ import { Footer } from "./components/Footer";
 function App() {
   return (
     <div className="min-h-screen bg-[#0a0a1a] overflow-x-hidden">
+      <ScrollProgress />
       <Navigation />
       
       <main>
